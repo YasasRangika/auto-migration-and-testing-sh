@@ -11,7 +11,7 @@ cat log.jtl
 ***************************************************
 COMMENT
 
-echo "**************************************************************"
+echo "****************************configure master-datasources**********************************"
 
 #3.Master-datasources.xml file and provide the datasource configurations
 echo "Trying to configure master-datasources.xml"
@@ -32,7 +32,7 @@ echo "You are going to migrate API Manager version wso2am-$migrate_ver."
 COMMENT
 
 #Configuring the /repository/conf/registry.xml file
-echo "**************************************************************"
+echo "***************************Configuring the /repository/conf/registry.xml file***********************************"
 case "$1" in
 	"210")
 		echo "Trying to configure registry.xml"
@@ -66,7 +66,7 @@ case "$1" in
 	;;
 esac
 
-echo "**************************************************************"
+echo "*****************************Configuring the /repository/conf/user-mgt.xml file*********************************"
 
 #Configuring the /repository/conf/user-mgt.xml file
 case "$1" in
@@ -99,7 +99,7 @@ case "$1" in
 	;;
 esac
 
-echo "**************************************************************"
+echo "*****************************Move synapse configurations(created) -> /synapse-configs/default*********************************"
 
 <<COMMENT
 #Move synapse configurations(created) -> /synapse-configs/default
@@ -118,18 +118,35 @@ then
   echo "Path does not exists"
 fi
 
+#Copy all created /synapse-configs/default/api configs	
+rsync -aP --exclude=_RevokeAPI_.xml --exclude=_AuthorizeAPI_.xml --exclude=_TokenAPI_.xml --exclude=_UserInfoAPI_.xml  $2/repository/deployment/server/synapse-configs/default/api/* ../../../repository/deployment/server/synapse-configs/default/api
 
-#rsync -av --exclude=''$2'/repository/deployment/server/synapse-configs/default/api/_AuthorizeAPI_.xml' $2/repository/deployment/server/synapse-configs/default/ ../../../repository/deployment/server/synapse-configs
+#Copy all created /synapse-configs/default/sequences configs
+rsync -aP --exclude=_auth_failure_handler_.xml --exclude=_build_.xml --exclude=_cors_request_handler_.xml --exclude=fault.xml --exclude=main.xml --exclude=_production_key_error_.xml --exclude=_resource_mismatch_handler_.xml --exclude=_sandbox_key_error_.xml --exclude=_throttle_out_handler_.xml --exclude=_token_fault_.xml $2/repository/deployment/server/synapse-configs/default/sequences/* ../../../repository/deployment/server/synapse-configs/default/sequences
 
+#Copy all created /synapse-configs/default/proxy-services configs
+rsync -aP --exclude=WorkflowCallbackService.xml $2/repository/deployment/server/synapse-configs/default/proxy-services/* ../../../repository/deployment/server/synapse-configs/default/proxy-services
+
+#Copy all created /synapse-configs/default configs
+rsync -aP --exclude=api --exclude=proxy-services --exclude=sequences $2/repository/deployment/server/synapse-configs/default/* ../../../repository/deployment/server/synapse-configs/default
+
+echo "*****************************Move all tenant synapse configurations -> /repository/tenants*********************************"
+
+#Copy tenants to new version
+#rsync -aP $2/repository/tenants/* ../../../repository/tenants
+cp -R $2/repository/tenants ../../../repository/tenants
+echo "Successfully moved tenants files to new version"
 cd ../..
-current_path=$(pwd)
-cd ~/../..
 
-shopt -s extglob
-#copy all the synapse-configs of except  mentioned files
-cp $2/repository/deployment/server/synapse-configs/default/api/!(_*.xml) $current_path/../repository/deployment/server/synapse-configs
-cp $2/repository/deployment/server/synapse-configs/default/api/!(_*.xml) $current_path/../repository/deployment/server/synapse-configs
-shopt -u extglob
-cd $current_path
-pwd
+echo "Stop all running WSO2 API Manager server instances..."
+fuser -k 9443/tcp
+echo "Stopped"
+
+
+
+
+
+
+
+
 
