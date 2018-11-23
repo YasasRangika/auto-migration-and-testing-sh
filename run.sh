@@ -126,6 +126,10 @@ current_path=$(pwd)
 cd ~/../..
 
 shopt -s extglob
+#copy all the synapse-configs of except  mentioned files
+cp $2/repository/deployment/server/synapse-configs/default/api/!(_*.xml) $current_path/../repository/deployment/server/synapse-configs
 cp $2/repository/deployment/server/synapse-configs/default/api/!(_*.xml) $current_path/../repository/deployment/server/synapse-configs
 shopt -u extglob
+cd $current_path
+pwd
 
