@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Run jmeter and do all testings to current version of APIM
-cd testing/bin
+cd testing/bin #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DO CHANGES FOR THIS USING pushd AND popd~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 sh jmeter.sh -n -t Scenario_001_APIM.jmx -l log.jtl
 
 <<COMMENT
@@ -14,12 +14,12 @@ COMMENT
 echo "****************************configure master-datasources**********************************"
 
 #3.Master-datasources.xml file and provide the datasource configurations
-echo "Trying to configure master-datasources.xml"
+echo Trying to configure master-datasources.xml
 if cp -R ../../data/master-datasources.xml ../../../repository/conf/datasources
 then
-	echo  "Successfully  configured"
+	echo  Successfully  configured
 else
-	echo "Configuration failed"
+	echo Configuration failed
 fi
 
 <<COMMENT
@@ -32,52 +32,52 @@ echo "You are going to migrate API Manager version wso2am-$migrate_ver."
 COMMENT
 
 #Configuring the /repository/conf/registry.xml file
-echo "***************************Configuring the /repository/conf/registry.xml file***********************************"
-case "$1" in
+echo ***************************Configuring the /repository/conf/registry.xml file***********************************
+case "$2" in
 	"210")
-		echo "Trying to configure registry.xml"
+		echo Trying to configure registry.xml
 		if cp -R ../../data/API-M_2.1.0/registry.xml ../../../repository/conf
 		then
-			echo  "Successfully  configured registry.xml"
+			echo  Successfully  configured registry.xml
 		else
-			echo "Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version"
+			echo Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version
 		fi
 	;;
 	"220")
-		echo "Trying to configure registry.xml"
+		echo Trying to configure registry.xml
 		if cp -R ../../data/API-M_2.2.0/registry.xml ../../../repository/conf/registry.xml
 		then
-			echo  "Successfully  configured registry.xml"
+			echo  Successfully  configured registry.xml
 		else
-			echo "Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version"
+			echo Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version
 		fi
 	;;
 	"250" | "260")
-		echo "Trying to configure registry.xml"
+		echo Trying to configure registry.xml
 		if cp -R ../../data/API-M_2.5.0_2.6.0/registry.xml ../../../repository/conf/registry.xml
 		then
-			echo  "Successfully  configured registry.xml"
+			echo  Successfully  configured registry.xml
 		else
-			echo "Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version"
+			echo Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version
 		fi
 	;;
 	*)
-		echo "Error while selecting wso2am-$1 version of API Manager"
+		echo Error while selecting wso2am-$1 version of API Manager
 	;;
 esac
 
 echo "*****************************Configuring the /repository/conf/user-mgt.xml file*********************************"
 
 #Configuring the /repository/conf/user-mgt.xml file
-case "$1" in
+case "$2" in
 
 	"210" | "220" | "250" | "260")
-		echo "Trying to configure user-mgt.xml"
+		echo Trying to configure user-mgt.xml
 		if cp -R ../../data/user-mgt.xml ../../../repository/conf/user-mgt.xml
 		then
-			echo  "Successfully  configured"
+			echo  Successfully  configured
 		else
-			echo "Configuration failed, Please manually configure the /repository/conf/user-mgt.xml file as previous version"
+			echo Configuration failed, Please manually configure the /repository/conf/user-mgt.xml file as previous version
 		fi
 	;;
 
@@ -95,7 +95,7 @@ case "$1" in
 	
 
 	*)
-		echo "Error while selecting wso2am-$1 version of API Manager"
+		echo Error while selecting wso2am-$2 version of API Manager
 	;;
 esac
 
@@ -107,48 +107,114 @@ read -p "Enter your current API Manger path for <API-M_2.1.0_MANAGER_HOME> : " p
 COMMENT
 
 #check if path is not empty
-if [ -z "$2" ]
+if [ -z "$3" ]
 then
-  echo "Path is empty!"
+  echo Path is empty!
   exit
 fi
 #check if path exist
-if [ ! -e "$2" ] 
+if [ ! -e "$3" ] 
 then
-  echo "Path does not exists"
+  echo Path does not exists
 fi
 
 #Copy all created /synapse-configs/default/api configs	
-rsync -aP --exclude=_RevokeAPI_.xml --exclude=_AuthorizeAPI_.xml --exclude=_TokenAPI_.xml --exclude=_UserInfoAPI_.xml  $2/repository/deployment/server/synapse-configs/default/api/* ../../../repository/deployment/server/synapse-configs/default/api
+rsync -aP --exclude=_RevokeAPI_.xml --exclude=_AuthorizeAPI_.xml --exclude=_TokenAPI_.xml --exclude=_UserInfoAPI_.xml  $3/repository/deployment/server/synapse-configs/default/api/* ../../../repository/deployment/server/synapse-configs/default/api
 
 #Copy all created /synapse-configs/default/sequences configs
-rsync -aP --exclude=_auth_failure_handler_.xml --exclude=_build_.xml --exclude=_cors_request_handler_.xml --exclude=fault.xml --exclude=main.xml --exclude=_production_key_error_.xml --exclude=_resource_mismatch_handler_.xml --exclude=_sandbox_key_error_.xml --exclude=_throttle_out_handler_.xml --exclude=_token_fault_.xml $2/repository/deployment/server/synapse-configs/default/sequences/* ../../../repository/deployment/server/synapse-configs/default/sequences
+rsync -aP --exclude=_auth_failure_handler_.xml --exclude=_build_.xml --exclude=_cors_request_handler_.xml --exclude=fault.xml --exclude=main.xml --exclude=_production_key_error_.xml --exclude=_resource_mismatch_handler_.xml --exclude=_sandbox_key_error_.xml --exclude=_throttle_out_handler_.xml --exclude=_token_fault_.xml $3/repository/deployment/server/synapse-configs/default/sequences/* ../../../repository/deployment/server/synapse-configs/default/sequences
 
 #Copy all created /synapse-configs/default/proxy-services configs
-rsync -aP --exclude=WorkflowCallbackService.xml $2/repository/deployment/server/synapse-configs/default/proxy-services/* ../../../repository/deployment/server/synapse-configs/default/proxy-services
+rsync -aP --exclude=WorkflowCallbackService.xml $3/repository/deployment/server/synapse-configs/default/proxy-services/* ../../../repository/deployment/server/synapse-configs/default/proxy-services
 
 #Copy all created /synapse-configs/default configs
-rsync -aP --exclude=api --exclude=proxy-services --exclude=sequences $2/repository/deployment/server/synapse-configs/default/* ../../../repository/deployment/server/synapse-configs/default
+rsync -aP --exclude=api --exclude=proxy-services --exclude=sequences $3/repository/deployment/server/synapse-configs/default/* ../../../repository/deployment/server/synapse-configs/default
 
 echo "*****************************Move all tenant synapse configurations -> /repository/tenants*********************************"
 
 #Copy tenants to new version
 #rsync -aP $2/repository/tenants/* ../../../repository/tenants
-cp -R $2/repository/tenants ../../../repository/tenants
-echo "Successfully moved tenants files to new version"
-cd ../..
+cp -R $3/repository/tenants ../../../repository/tenants
+echo Successfully moved tenants files to new version
+cd ../..   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DO CHANGES FOR THIS USING pushd AND popd~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-echo "Stop all running WSO2 API Manager server instances..."
+echo Stop all running WSO2 API Manager server instances...
 if fuser -k 9443/tcp
 then
-	echo "Stopped running server"
+	echo Stopped running server
 else
-	echo "Error occured while stopping the server"
+	echo Error occured while stopping the server
 fi
 
+#Run the gateway artifact migration script
+echo "*****************************Running the gateway artifact migration script*********************************"
+<<COMMENT
+case "$2" in
+	"210")
+		echo "Trying to configure registry.xml
+		if [ "$1" -eq 200 ]
+		then
+			echo  "Successfully  configured registry.xml
+		else
+			echo "Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version"
+		fi
+	;;
+	"220")
+		echo "Trying to configure registry.xml"
+		if [ "$1" -eq 200 ]
+		then
+			echo  "Successfully  configured registry.xml"
+		elif [ "$1" -eq 210 ]
+		then
+			echo  "Successfully  configured registry.xml"
+		else
+			echo "Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version"
+		fi
+	;;
+	"250")
+		echo "Trying to configure registry.xml"
+		if [ "$1" -eq 200 ]
+		then
+			echo  "Successfully  configured registry.xml"
+		elif [ "$1" -eq 210 ]
+		then
+			echo  "Successfully  configured registry.xml"
+		elif [ "$1" -eq 220 ]
+		then
+			echo  "Successfully  configured registry.xml"
+		else
+			echo "Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version"
+		fi
+	;;
+	"260")
+		echo "Trying to configure registry.xml"
+		if [ "$1" -eq 200 ]
+		then
+			echo  "Successfully  configured registry.xml"
+		elif [ "$1" -eq 210 ]
+		then
+			echo  "Successfully  configured registry.xml"
+		elif [ "$1" -eq 220 ]
+		then
+			echo  "Successfully  configured registry.xml"
+		elif [ "$1" -eq 250 ]
+		then
+			echo  "JUST A SUCCESS MSG!!!"
+		else
+			echo "Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version"
+		fi
+	;;
+	*)
+		echo "Error while selecting wso2am-$1 version of API Manager"
+	;;
+esac
 
+[[ $(ls -A /home/yasas/Documents/WSO2/wso2am-2.5.0/repository/tenants) ]] && for output in /home/yasas/Documents/WSO2/wso2am-2.5.0/repository/tenants/*
+do
+    echo $output
+done
 
-
+COMMENT
 
 
 
