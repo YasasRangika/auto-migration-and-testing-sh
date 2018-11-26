@@ -1,59 +1,64 @@
-2018-11-23 15:52:57,738 INFO o.a.j.u.JMeterUtils: Setting Locale to en_US
-2018-11-23 15:52:57,752 INFO o.a.j.JMeter: Loading user properties from: user.properties
-2018-11-23 15:52:57,752 INFO o.a.j.JMeter: Loading system properties from: system.properties
-2018-11-23 15:52:57,757 INFO o.a.j.JMeter: Copyright (c) 1998-2018 The Apache Software Foundation
-2018-11-23 15:52:57,757 INFO o.a.j.JMeter: Version 5.0 r1840935
-2018-11-23 15:52:57,757 INFO o.a.j.JMeter: java.version=1.8.0_45
-2018-11-23 15:52:57,757 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
-2018-11-23 15:52:57,757 INFO o.a.j.JMeter: os.name=Linux
-2018-11-23 15:52:57,757 INFO o.a.j.JMeter: os.arch=amd64
-2018-11-23 15:52:57,757 INFO o.a.j.JMeter: os.version=4.15.0-20-generic
-2018-11-23 15:52:57,757 INFO o.a.j.JMeter: file.encoding=UTF-8
-2018-11-23 15:52:57,757 INFO o.a.j.JMeter: Max memory     =1789919232
-2018-11-23 15:52:57,757 INFO o.a.j.JMeter: Available Processors =4
-2018-11-23 15:52:57,761 INFO o.a.j.JMeter: Default Locale=English (United States)
-2018-11-23 15:52:57,761 INFO o.a.j.JMeter: JMeter  Locale=English (United States)
-2018-11-23 15:52:57,761 INFO o.a.j.JMeter: JMeterHome=/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing
-2018-11-23 15:52:57,761 INFO o.a.j.JMeter: user.dir  =/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin
-2018-11-23 15:52:57,761 INFO o.a.j.JMeter: PWD       =/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin
-2018-11-23 15:52:57,761 INFO o.a.j.JMeter: IP: 127.0.1.1 Name: yasas-ThinkPad-T530 FullName: yasas-ThinkPad-T530
-2018-11-23 15:52:57,764 INFO o.a.j.s.FileServer: Default base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
-2018-11-23 15:52:57,768 INFO o.a.j.s.FileServer: Set new base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
-2018-11-23 15:52:57,908 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
-2018-11-23 15:52:57,919 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
-2018-11-23 15:52:57,923 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
-2018-11-23 15:52:57,928 INFO o.a.j.s.SaveService: Loading file: Scenario_001_APIM.jmx
-2018-11-23 15:52:57,968 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2018-11-23 15:52:57,968 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2018-11-23 15:52:57,968 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2018-11-23 15:52:57,968 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2018-11-23 15:52:57,968 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
-2018-11-23 15:52:57,969 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
-2018-11-23 15:52:58,077 INFO o.a.j.JMeter: Creating summariser <summary>
-2018-11-23 15:52:58,084 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2018-11-23 15:52:58,085 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2018-11-23 15:52:58,085 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2018-11-23 15:52:58,093 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
-2018-11-23 15:52:58,093 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
-2018-11-23 15:52:58,601 INFO o.a.j.JMeter: Running test (1542968578601)
-2018-11-23 15:52:58,661 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : API Publisher
-2018-11-23 15:52:58,661 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group API Publisher.
-2018-11-23 15:52:58,661 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2018-11-23 15:52:58,662 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 perThread=1000.0 delayedStart=false
-2018-11-23 15:52:58,684 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2018-11-23 15:52:58,685 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2018-11-23 15:52:58,687 INFO o.a.j.t.JMeterThread: Thread started: API Publisher 1-1
-2018-11-23 15:52:58,723 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = yasas-ThinkPad-T530
-2018-11-23 15:52:58,729 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
-2018-11-23 15:52:58,731 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
-2018-11-23 15:52:58,731 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
-2018-11-23 15:52:58,731 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
-2018-11-23 15:52:58,731 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
-2018-11-23 15:52:58,811 INFO o.a.j.p.h.s.h.LazyLayeredConnectionSocketFactory: Setting up HTTPS TrustAll Socket Factory
-2018-11-23 15:52:58,816 INFO o.a.j.u.JsseSSLManager: Using default SSL protocol: TLS
-2018-11-23 15:52:58,817 INFO o.a.j.u.JsseSSLManager: SSL session context: per-thread
-2018-11-23 15:52:58,888 INFO o.a.j.p.h.m.RegExUserParameters: RegExUserParameters element: RegEx User Parameters => Referenced RegExp was not found, no parameter will be changed
-2018-11-23 15:52:58,972 INFO o.a.j.t.JMeterThread: Thread is done: API Publisher 1-1
-2018-11-23 15:52:58,972 INFO o.a.j.t.JMeterThread: Thread finished: API Publisher 1-1
-2018-11-23 15:52:58,973 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2018-11-23 15:52:58,974 INFO o.a.j.r.Summariser: summary =     13 in 00:00:00 =   34.9/s Avg:     4 Min:     0 Max:    33 Err:    13 (100.00%)
+2018-11-26 11:30:29,053 INFO o.a.j.u.JMeterUtils: Setting Locale to en_US
+2018-11-26 11:30:29,068 INFO o.a.j.JMeter: Loading user properties from: user.properties
+2018-11-26 11:30:29,069 INFO o.a.j.JMeter: Loading system properties from: system.properties
+2018-11-26 11:30:29,073 INFO o.a.j.JMeter: Copyright (c) 1998-2018 The Apache Software Foundation
+2018-11-26 11:30:29,073 INFO o.a.j.JMeter: Version 5.0 r1840935
+2018-11-26 11:30:29,073 INFO o.a.j.JMeter: java.version=1.8.0_45
+2018-11-26 11:30:29,074 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2018-11-26 11:30:29,074 INFO o.a.j.JMeter: os.name=Linux
+2018-11-26 11:30:29,074 INFO o.a.j.JMeter: os.arch=amd64
+2018-11-26 11:30:29,074 INFO o.a.j.JMeter: os.version=4.15.0-20-generic
+2018-11-26 11:30:29,074 INFO o.a.j.JMeter: file.encoding=UTF-8
+2018-11-26 11:30:29,074 INFO o.a.j.JMeter: Max memory     =1789919232
+2018-11-26 11:30:29,074 INFO o.a.j.JMeter: Available Processors =4
+2018-11-26 11:30:29,079 INFO o.a.j.JMeter: Default Locale=English (United States)
+2018-11-26 11:30:29,079 INFO o.a.j.JMeter: JMeter  Locale=English (United States)
+2018-11-26 11:30:29,079 INFO o.a.j.JMeter: JMeterHome=/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing
+2018-11-26 11:30:29,079 INFO o.a.j.JMeter: user.dir  =/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin
+2018-11-26 11:30:29,080 INFO o.a.j.JMeter: PWD       =/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin
+2018-11-26 11:30:29,080 INFO o.a.j.JMeter: IP: 127.0.1.1 Name: yasas-ThinkPad-T530 FullName: yasas-ThinkPad-T530
+2018-11-26 11:30:29,084 INFO o.a.j.s.FileServer: Default base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
+2018-11-26 11:30:29,087 INFO o.a.j.s.FileServer: Set new base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
+2018-11-26 11:30:29,231 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2018-11-26 11:30:29,243 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2018-11-26 11:30:29,247 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2018-11-26 11:30:29,253 INFO o.a.j.s.SaveService: Loading file: Scenario_001_APIM.jmx
+2018-11-26 11:30:29,296 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-11-26 11:30:29,296 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-11-26 11:30:29,297 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-11-26 11:30:29,297 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-11-26 11:30:29,297 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2018-11-26 11:30:29,297 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2018-11-26 11:30:29,415 INFO o.a.j.JMeter: Creating summariser <summary>
+2018-11-26 11:30:29,422 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2018-11-26 11:30:29,423 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2018-11-26 11:30:29,423 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2018-11-26 11:30:29,436 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2018-11-26 11:30:29,436 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2018-11-26 11:30:29,959 INFO o.a.j.JMeter: Running test (1543212029959)
+2018-11-26 11:30:29,994 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : API Publisher
+2018-11-26 11:30:29,995 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group API Publisher.
+2018-11-26 11:30:29,995 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2018-11-26 11:30:29,995 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 perThread=1000.0 delayedStart=false
+2018-11-26 11:30:30,016 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2018-11-26 11:30:30,016 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2018-11-26 11:30:30,019 INFO o.a.j.t.JMeterThread: Thread started: API Publisher 1-1
+2018-11-26 11:30:30,052 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = yasas-ThinkPad-T530
+2018-11-26 11:30:30,058 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2018-11-26 11:30:30,060 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2018-11-26 11:30:30,060 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2018-11-26 11:30:30,060 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2018-11-26 11:30:30,060 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2018-11-26 11:30:30,152 INFO o.a.j.p.h.s.h.LazyLayeredConnectionSocketFactory: Setting up HTTPS TrustAll Socket Factory
+2018-11-26 11:30:30,160 INFO o.a.j.u.JsseSSLManager: Using default SSL protocol: TLS
+2018-11-26 11:30:30,160 INFO o.a.j.u.JsseSSLManager: SSL session context: per-thread
+2018-11-26 11:30:30,223 INFO o.a.j.u.SSLManager: JmeterKeyStore Location:  type JKS
+2018-11-26 11:30:30,225 INFO o.a.j.u.SSLManager: KeyStore created OK
+2018-11-26 11:30:30,225 WARN o.a.j.u.SSLManager: Keystore file not found, loading empty keystore
+2018-11-26 11:30:31,285 INFO o.a.j.r.Summariser: summary +      1 in 00:00:01 =    0.8/s Avg:  1096 Min:  1096 Max:  1096 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0
+2018-11-26 11:30:32,806 INFO o.a.j.p.h.m.RegExUserParameters: RegExUserParameters element: RegEx User Parameters => Referenced RegExp was not found, no parameter will be changed
+2018-11-26 11:30:35,158 INFO o.a.j.t.JMeterThread: Thread is done: API Publisher 1-1
+2018-11-26 11:30:35,158 INFO o.a.j.t.JMeterThread: Thread finished: API Publisher 1-1
+2018-11-26 11:30:35,159 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2018-11-26 11:30:35,160 INFO o.a.j.r.Summariser: summary +     12 in 00:00:04 =    3.1/s Avg:   312 Min:    18 Max:  1509 Err:     6 (50.00%) Active: 0 Started: 1 Finished: 1
+2018-11-26 11:30:35,160 INFO o.a.j.r.Summariser: summary =     13 in 00:00:05 =    2.5/s Avg:   373 Min:    18 Max:  1509 Err:     6 (46.15%)
