@@ -153,13 +153,21 @@ case "$2" in
 	"210")
 		if [ "$1" -eq 200 ]
 		then
+			echo Run migration sript from apim$1 to apim$2...
+			/bin/bash data/migration_scripts/apim200_to_apim210_gateway_artifact_migrator.sh ../repository/deployment/server/synapse-configs/default
+			if [ $? -eq 0 ]
+			then
+				echo  "Gateway artifacts configuration successful in super tenant."
+			else
+				echo "Configuration failed, Please manually configure the gateway artifacts downloading from https://docs.wso2.com/download/attachments/57743137/apim200_to_apim210_gateway_artifact_migrator.sh?version=1&modificationDate=1487589883000&api=v2"
+			fi
 			[[ $(ls -A ../repository/tenants) ]] && for dirs in ../repository/tenants/*
 			do
 				echo "Trying to run apim$1_to_apim$2_gateway_artifact_migrator.sh in tenant-id : $(basename $dirs)"
 				/bin/bash data/migration_scripts/apim200_to_apim210_gateway_artifact_migrator.sh $dirs/synapse-configs/default
 				if [ $? -eq 0 ]
 				then
-					echo  Gateway artifacts configuration successful.
+					echo  "Gateway artifacts configuration successful for tenants."
 				else
 					echo "Configuration failed, Please manually configure the gateway artifacts downloading from https://docs.wso2.com/download/attachments/57743137/apim200_to_apim210_gateway_artifact_migrator.sh?version=1&modificationDate=1487589883000&api=v2"
 				fi
@@ -169,29 +177,46 @@ case "$2" in
 		fi
 	;;
 	"220")
-		echo Trying to configure registry.xml
 		if [ "$1" -eq 200 ]
 		then
+			echo Run migration sript from apim$1 to apim$2...
+			/bin/bash data/migration_scripts/apim200_to_apim220_gateway_artifact_migrator.sh ../repository/deployment/server/synapse-configs/default
+			if [ $? -eq 0 ]
+			then
+				echo  "Gateway artifacts configuration successful in super tenant."
+			else
+				echo "Configuration failed, Please manually configure the gateway artifacts downloading from https://docs.wso2.com/download/attachments/87701828/apim200_to_apim220_gateway_artifact_migrator.sh?version=2&modificationDate=1521613529000&api=v2"
+			fi
+
 			[[ $(ls -A ../repository/tenants) ]] && for dirs in ../repository/tenants/*
 			do
 				echo "Trying to run apim$1_to_apim$2_gateway_artifact_migrator.sh in tenant-id : $(basename $dirs)"
 				/bin/bash data/migration_scripts/apim200_to_apim220_gateway_artifact_migrator.sh $dirs/synapse-configs/default
 				if [ $? -eq 0 ]
 				then
-					echo  Gateway artifacts configuration successful.
+					echo  "Gateway artifacts configuration successful for tenants."
 				else
 					echo "Configuration failed, Please manually configure the gateway artifacts downloading from https://docs.wso2.com/download/attachments/87701828/apim200_to_apim220_gateway_artifact_migrator.sh?version=2&modificationDate=1521613529000&api=v2"
 				fi
 			done
 		elif [ "$1" -eq 210 ]
 		then
+			echo Run migration sript from apim$1 to apim$2...
+			/bin/bash data/migration_scripts/apim210_to_apim220_gateway_artifact_migrator.sh ../repository/deployment/server/synapse-configs/default
+			if [ $? -eq 0 ]
+			then
+				echo  "Gateway artifacts configuration successful in super tenant."
+			else
+				echo "Configuration failed, Please manually configure the gateway artifacts downloading from https://docs.wso2.com/download/attachments/87701828/apim210_to_apim220_gateway_artifact_migrator.sh?version=1&modificationDate=1521603692000&api=v2"
+			fi
+
 			[[ $(ls -A ../repository/tenants) ]] && for dirs in ../repository/tenants/*
 			do
 				echo "Trying to run apim$1_to_apim$2_gateway_artifact_migrator.sh in tenant-id : $(basename $dirs)"
 				/bin/bash data/migration_scripts/apim210_to_apim220_gateway_artifact_migrator.sh $dirs/synapse-configs/default
 				if [ $? -eq 0 ]
 				then
-					echo  Gateway artifacts configuration successful.
+					echo  "Gateway artifacts configuration successful for tenants."
 				else
 					echo "Configuration failed, Please manually configure the gateway artifacts downloading from https://docs.wso2.com/download/attachments/87701828/apim210_to_apim220_gateway_artifact_migrator.sh?version=1&modificationDate=1521603692000&api=v2"
 				fi
@@ -204,7 +229,23 @@ case "$2" in
 		echo Trying to configure registry.xml
 		if [ "$1" -eq 200 ]
 		then
-			echo  Successfully  configured registry.xml
+			echo Run migration sript from apim$1 to apim$2...
+			/bin/bash data/migration_scripts/apim200_to_apim250_gateway_artifact_migrator.sh ../repository/deployment/server/synapse-configs/default
+			if [ $? -eq 0 ]
+			then
+				echo  "Gateway artifacts configuration successful in super tenant."
+			else
+				echo "Configuration failed, Please manually configure the gateway artifacts downloading from https://docs.wso2.com/download/attachments/92520041/apim200_to_apim250_gateway_artifact_migrator.sh?version=2&modificationDate=1531390783000&api=v2"
+			fi
+
+			/bin/bash data/migration_scripts/apim200_to_apim250_gateway_artifact_migrator.sh ../repository/tenants
+			if [ $? -eq 0 ]
+			then
+				echo  "Gateway artifacts configuration successful for tenants."
+			else
+				echo "Configuration failed, Please manually configure the gateway artifacts downloading from https://docs.wso2.com/download/attachments/92520041/apim200_to_apim250_gateway_artifact_migrator.sh?version=2&modificationDate=1531390783000&api=v2"
+			fi
+
 		elif [ "$1" -eq 210 ]
 		then
 			echo  Successfully  configured registry.xml
