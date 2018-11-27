@@ -134,7 +134,7 @@ echo "*****************************Move all tenant synapse configurations -> /re
 
 #Copy tenants to new version
 #rsync -aP $2/repository/tenants/* ../../../repository/tenants
-cp -R $3/repository/tenants ../../../repository/tenants
+cp -R $3/repository/tenants/* ../../../repository/tenants
 echo Successfully moved tenants files to new version
 cd ../..   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DO CHANGES FOR THIS USING pushd AND popd~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -148,60 +148,89 @@ fi
 
 #Run the gateway artifact migration script
 echo "*****************************Running the gateway artifact migration script*********************************"
-<<COMMENT
+
 case "$2" in
 	"210")
-		echo "Trying to configure registry.xml
 		if [ "$1" -eq 200 ]
 		then
-			echo  "Successfully  configured registry.xml
+			[[ $(ls -A ../repository/tenants) ]] && for dirs in ../repository/tenants/*
+			do
+				echo "Trying to run apim$1_to_apim$2_gateway_artifact_migrator.sh in tenant-id : $(basename $dirs)"
+				/bin/bash data/migration_scripts/apim200_to_apim210_gateway_artifact_migrator.sh $dirs/synapse-configs/default
+				if [ $? -eq 0 ]
+				then
+					echo  Gateway artifacts configuration successful.
+				else
+					echo "Configuration failed, Please manually configure the gateway artifacts downloading from https://docs.wso2.com/download/attachments/57743137/apim200_to_apim210_gateway_artifact_migrator.sh?version=1&modificationDate=1487589883000&api=v2"
+				fi
+			done
 		else
-			echo "Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version"
+			echo Old version entered is not valid.
 		fi
 	;;
 	"220")
-		echo "Trying to configure registry.xml"
+		echo Trying to configure registry.xml
 		if [ "$1" -eq 200 ]
 		then
-			echo  "Successfully  configured registry.xml"
+			[[ $(ls -A ../repository/tenants) ]] && for dirs in ../repository/tenants/*
+			do
+				echo "Trying to run apim$1_to_apim$2_gateway_artifact_migrator.sh in tenant-id : $(basename $dirs)"
+				/bin/bash data/migration_scripts/apim200_to_apim220_gateway_artifact_migrator.sh $dirs/synapse-configs/default
+				if [ $? -eq 0 ]
+				then
+					echo  Gateway artifacts configuration successful.
+				else
+					echo "Configuration failed, Please manually configure the gateway artifacts downloading from https://docs.wso2.com/download/attachments/87701828/apim200_to_apim220_gateway_artifact_migrator.sh?version=2&modificationDate=1521613529000&api=v2"
+				fi
+			done
 		elif [ "$1" -eq 210 ]
 		then
-			echo  "Successfully  configured registry.xml"
+			[[ $(ls -A ../repository/tenants) ]] && for dirs in ../repository/tenants/*
+			do
+				echo "Trying to run apim$1_to_apim$2_gateway_artifact_migrator.sh in tenant-id : $(basename $dirs)"
+				/bin/bash data/migration_scripts/apim210_to_apim220_gateway_artifact_migrator.sh $dirs/synapse-configs/default
+				if [ $? -eq 0 ]
+				then
+					echo  Gateway artifacts configuration successful.
+				else
+					echo "Configuration failed, Please manually configure the gateway artifacts downloading from https://docs.wso2.com/download/attachments/87701828/apim210_to_apim220_gateway_artifact_migrator.sh?version=1&modificationDate=1521603692000&api=v2"
+				fi
+			done
 		else
-			echo "Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version"
+			echo Old version entered is not valid.
 		fi
 	;;
 	"250")
-		echo "Trying to configure registry.xml"
+		echo Trying to configure registry.xml
 		if [ "$1" -eq 200 ]
 		then
-			echo  "Successfully  configured registry.xml"
+			echo  Successfully  configured registry.xml
 		elif [ "$1" -eq 210 ]
 		then
-			echo  "Successfully  configured registry.xml"
+			echo  Successfully  configured registry.xml
 		elif [ "$1" -eq 220 ]
 		then
-			echo  "Successfully  configured registry.xml"
+			echo  Successfully  configured registry.xml
 		else
-			echo "Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version"
+			echo Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version
 		fi
 	;;
 	"260")
-		echo "Trying to configure registry.xml"
+		echo Trying to configure registry.xml
 		if [ "$1" -eq 200 ]
 		then
-			echo  "Successfully  configured registry.xml"
+			echo  Successfully  configured registry.xml
 		elif [ "$1" -eq 210 ]
 		then
-			echo  "Successfully  configured registry.xml"
+			echo  Successfully  configured registry.xml
 		elif [ "$1" -eq 220 ]
 		then
-			echo  "Successfully  configured registry.xml"
+			echo  Successfully  configured registry.xml
 		elif [ "$1" -eq 250 ]
 		then
-			echo  "JUST A SUCCESS MSG!!!"
+			echo  JUST A SUCCESS MSG!!!
 		else
-			echo "Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version"
+			echo Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version
 		fi
 	;;
 	*)
@@ -209,12 +238,7 @@ case "$2" in
 	;;
 esac
 
-[[ $(ls -A /home/yasas/Documents/WSO2/wso2am-2.5.0/repository/tenants) ]] && for output in /home/yasas/Documents/WSO2/wso2am-2.5.0/repository/tenants/*
-do
-    echo $output
-done
 
-COMMENT
 
 
 
