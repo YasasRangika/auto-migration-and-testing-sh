@@ -13,7 +13,7 @@ COMMENT
 
 echo "****************************configure master-datasources**********************************"
 
-#3.Master-datasources.xml file and provide the datasource configurations
+#3.Master-datasources.xml file and provide the datasource configurations - 3
 echo Trying to configure master-datasources.xml
 if cp -R ../../data/master-datasources.xml ../../../repository/conf/datasources
 then
@@ -31,7 +31,7 @@ echo "You are going to migrate API Manager version wso2am-$migrate_ver."
 *********************************************************
 COMMENT
 
-#Configuring the /repository/conf/registry.xml file
+#Configuring the /repository/conf/registry.xml file - 4
 echo ***************************Configuring the /repository/conf/registry.xml file***********************************
 case "$2" in
 	"210")
@@ -118,7 +118,7 @@ then
   echo Path does not exists
 fi
 
-#Copy all created /synapse-configs/default/api configs	
+#Copy all created /synapse-configs/default/api configs - 5
 rsync -aP --exclude=_RevokeAPI_.xml --exclude=_AuthorizeAPI_.xml --exclude=_TokenAPI_.xml --exclude=_UserInfoAPI_.xml  $3/repository/deployment/server/synapse-configs/default/api/* ../../../repository/deployment/server/synapse-configs/default/api
 
 #Copy all created /synapse-configs/default/sequences configs
@@ -132,12 +132,13 @@ rsync -aP --exclude=api --exclude=proxy-services --exclude=sequences $3/reposito
 
 echo "*****************************Move all tenant synapse configurations -> /repository/tenants*********************************"
 
-#Copy tenants to new version
+#Copy tenants to new version - 6
 #rsync -aP $2/repository/tenants/* ../../../repository/tenants
 cp -R $3/repository/tenants/* ../../../repository/tenants
 echo Successfully moved tenants files to new version
 cd ../..   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DO CHANGES FOR THIS USING pushd AND popd~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#Stop all running WSO2 API Manager server instances - 7
 echo Stop all running WSO2 API Manager server instances...
 if fuser -k 9443/tcp
 then
@@ -146,7 +147,7 @@ else
 	echo Error occured while stopping the server
 fi
 
-#Run the gateway artifact migration script
+#Run the gateway artifact migration script - 9
 echo "*****************************Running the gateway artifact migration script*********************************"
 
 case "$2" in
@@ -364,7 +365,9 @@ esac
 
 
 
-#Re-indexing the artifacts in the registry.xml
+#Re-indexing the artifacts in the registry.xml - 10
+if [ "$2" -eq 210 ] || [ "$2" -eq 220 ]
+then
 echo "*****************************Re-indexing the artifacts in the registry*********************************"
 sed -i.bak 's/\/_system\/local\/repository\/components\/org.wso2.carbon.registry\/indexing\/lastaccesstime/\/_system\/local\/repository\/components\/org.wso2.carbon.registry\/indexing\/lastaccesstime_1/' ../repository/conf/registry.xml
 if [ $? -eq 0 ]
@@ -374,10 +377,37 @@ else
 	echo "Configuration failed, Please manually rename the <lastAccessTimeLocation> element in the <API-M_2.x.0_HOME>/repository/conf/registry.xml file."
 fi
 
-if [ ! -e "" ] 
+if [ -e ../solr ] 
 then
-  echo Path does not exists
+  rm -R ../solr
 fi
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

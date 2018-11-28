@@ -2,5 +2,5 @@
 
 if [ -e ../solr ] 
 then
-  echo Path exists
+  rm -R ../solr
 fi
