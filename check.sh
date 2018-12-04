@@ -1,6 +1,5 @@
 #!/bin/bash
+source properties.conf
 
-if [ -e ../solr ] 
-then
-  rm -R ../solr
-fi
+echo $name
+echo $age
