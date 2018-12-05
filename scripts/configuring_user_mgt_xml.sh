@@ -1,10 +1,12 @@
 #!/bin/bash
 
-case "$end_version" in
+echo "*****************************Configuring the /repository/conf/user-mgt.xml file*********************************"
 
-	"210" | "220" | "250" | "260")
+case "$2" in
+
+	"2.1.0" | "2.2.0" | "2.5.0" | "2.6.0")
 		echo Trying to configure user-mgt.xml
-		if cp -R ../../data/user-mgt.xml ../../../repository/conf/user-mgt.xml
+		if cp -R data/user-mgt.xml $1/wso2am-$2/repository/conf/user-mgt.xml
 		then
 			echo  Successfully  configured
 		else
@@ -14,9 +16,9 @@ case "$end_version" in
 
 	#If a new version with defferent user-mgt.xml file,
 	# copy configured user-mgt.xml file to new folder named version in data directory, then edit xxx and uncomment this
-	# "xxx")
+	# "x.x.x")
 	#	echo "Trying to configure user-mgt.xml"
-	#	if cp -R ../../data/registryXXX.xml ../../../repository/conf/user-mgt.xml
+	#	if cp -R data/registryXXX.xml $1/wso2am-$2/repository/conf/user-mgt.xml
 	#	then
 	#		echo  "Successfully  configured"
 	#	else
@@ -26,9 +28,8 @@ case "$end_version" in
 	
 
 	*)
-		echo Error while selecting wso2am-$end_version version of API Manager
+		echo Error while selecting wso2am-$2 version of API Manager
 	;;
 esac
 
-echo "*****************************Move synapse configurations(created) -> /synapse-configs/default*********************************"
 

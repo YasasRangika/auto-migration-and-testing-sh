@@ -45,14 +45,28 @@ fi
 
 #Configure old APIM's the /repository/conf/registry.xml file
 
+./scripts/configuring_registry_xml.sh $to_old_path $old_version
+
 #Configure old APIM's the /repository/conf/user-mgt.xml file
+
+./scripts/configuring_user_mgt_xml.sh $to_old_path $old_version
 
 #Create databases and tables in mysql(if it is mysql)
 
+./scripts/mysql_connection_old_apim.sh $to_old_path $old_version
+
 #Run the APIM
-./scripts/configuring_registry_xml.sh 
+ 
+gnome-terminal -e "sh $to_old_path/wso2am-$old_version/bin/wso2server.sh"
+
+while ! echo exit | nc localhost 9443
+do 
+	sleep 10
+done
+
 #Run jmeter and do all testings to current version of APIM
-#./scripts/jmeter_data_population.sh
+
+./scripts/jmeter_data_population.sh
 
 #3.Master-datasources.xml file and provide the datasource configurations - 3
 

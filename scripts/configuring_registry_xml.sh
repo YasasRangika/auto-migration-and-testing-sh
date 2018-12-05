@@ -1,28 +1,28 @@
 #!/bin/bash
 
-echo ***************************Configuring the /repository/conf/registry.xml file***********************************
-case "$end_version" in
-	"210")
+echo "***************************Configuring the /repository/conf/registry.xml file***********************************"
+case "$2" in
+	"2.1.0")
 		echo Trying to configure registry.xml
-		if cp -R ../../data/API-M_2.1.0/registry.xml ../../../repository/conf
+		if cp -R data/API-M_2.1.0/registry.xml $1/wso2am-$2/repository/conf
 		then
 			echo  Successfully  configured registry.xml
 		else
 			echo Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version
 		fi
 	;;
-	"220")
+	"2.2.0")
 		echo Trying to configure registry.xml
-		if cp -R ../../data/API-M_2.2.0/registry.xml ../../../repository/conf/registry.xml
+		if cp -R data/API-M_2.2.0/registry.xml $1/wso2am-$2/repository/conf/registry.xml
 		then
 			echo  Successfully  configured registry.xml
 		else
 			echo Configuration failed, Please manually configure the /repository/conf/registry.xml file as previous version
 		fi
 	;;
-	"250" | "260")
+	"2.5.0" | "2.6.0")
 		echo Trying to configure registry.xml
-		if cp -R ../../data/API-M_2.5.0_2.6.0/registry.xml ../../../repository/conf/registry.xml
+		if cp -R data/API-M_2.5.0_2.6.0/registry.xml $1/wso2am-$2/repository/conf/registry.xml
 		then
 			echo  Successfully  configured registry.xml
 		else
@@ -30,9 +30,7 @@ case "$end_version" in
 		fi
 	;;
 	*)
-		echo Error while selecting wso2am-$old_version version of API Manager
+		echo Error while selecting wso2am-$2 version of API Manager
 	;;
 esac
-
-echo "*****************************Configuring the /repository/conf/user-mgt.xml file*********************************"
 

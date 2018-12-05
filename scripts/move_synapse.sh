@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "*****************************Move synapse configurations(created) -> /synapse-configs/default*********************************"
+
 <<COMMENT
 #Move synapse configurations(created) -> /synapse-configs/default
 read -p "Enter your current API Manger path for <API-M_2.1.0_MANAGER_HOME> : " path

@@ -16,10 +16,10 @@ mysql -u root -e "$SQL";
 cd ..
 
 echo -ne 'starting...                     (0%)\r'
-mysql -u root -D$db1 < 'dbscripts/mysql5.7.sql';
+mysql -u root -D$db1 < ''"$1"'/wso2am-'"$2"'/dbscripts/mysql5.7.sql';
 echo -ne '########                       (40%)\r'
-mysql -u root -D$db2 < 'dbscripts/mysql5.7.sql';
+mysql -u root -D$db2 < ''"$1"'/wso2am-'"$2"'/dbscripts/mysql5.7.sql';
 echo -ne '#####################          (70%)\r'
-mysql -u root -D$db3 < 'dbscripts/apimgt/mysql5.7.sql';
+mysql -u root -D$db3 < ''"$1"'/wso2am-'"$2"'/dbscripts/apimgt/mysql5.7.sql';
 echo -ne '##############################(100%)\r'
 echo -ne 'completed.                          \r'
