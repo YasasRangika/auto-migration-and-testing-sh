@@ -38,7 +38,7 @@
 		       <url>jdbc:mysql://localhost:3306/regdb?useSSL=false</url>
 		       <username>regadmin</username>
 		       <password>regadmin</password>
-		       <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+		       <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
 		       <maxActive>80</maxActive>
 		       <maxWait>60000</maxWait>
 		       <minIdle>5</minIdle>
@@ -61,7 +61,7 @@
 		       <url>jdbc:mysql://localhost:3306/userdb?useSSL=false</url>
 		       <username>regadmin</username>
 		       <password>regadmin</password>
-		       <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+		       <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
 		       <maxActive>80</maxActive>
 		       <maxWait>60000</maxWait>
 		       <minIdle>5</minIdle>
@@ -85,7 +85,7 @@
 		       <username>regadmin</username>
 		       <password>regadmin</password>
 		       <defaultAutoCommit>false</defaultAutoCommit>
-		       <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+		       <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
 		       <maxActive>80</maxActive>
 		       <maxWait>60000</maxWait>
 		       <minIdle>5</minIdle>

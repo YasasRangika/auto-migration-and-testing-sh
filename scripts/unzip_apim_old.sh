@@ -1,7 +1,9 @@
+#Don't want anymore copied all required parts
+
 #!/bin/bash
 source properties.conf
 
-#unzip -qq $to_new_path/wso2am-2.1.0.zip -d $to_new_path
+unzip -qq $to_new_path/wso2am-2.1.0.zip -d $to_new_path
 i=1
 [[ $(ls -A $to_new_path) ]] && for dirs in $to_new_path/*
 do
@@ -42,3 +44,11 @@ esac
 #pushd $to_new_path > /dev/null
 #ls -I "*.zip"
 #popd > /dev/null
+
+
+
+
+
+
+
+

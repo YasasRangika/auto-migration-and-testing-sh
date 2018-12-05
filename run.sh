@@ -1,9 +1,58 @@
 #!/bin/bash
 source properties.conf
 
-#unzip tecmint_files.zip -d /tmp/unziped
+#If both APIMs are in same folder
+if [[ $to_old_path -ef $to_new_path ]] 
+then
+	#Unzip APIMs
+	unzip -qq $to_new_path/\*.zip -d $to_new_path
 
+	#prepare variables
+	i=1
+	[[ $(ls -A $to_new_path) ]] && for dirs in $to_new_path/*
+	do
+		[[ $dirs =~ .zip ]] && continue
+		re="wso2am-([^/]+)"
+		if [[ $(basename $dirs) =~ $re ]]
+		then
+			eval "version$i=${BASH_REMATCH[1]}"
+			i=$((i+1))
+		fi
+	done
+
+	if [ $version1 \> $version2 ]
+	then
+		new_version=$version1
+		old_version=$version2
+	else
+		new_version=$version2
+		old_version=$version1
+	fi
+fi
+
+#Unzip the downloaded MySQL driver archive, and copy the MySQL JDBC driver JAR
+
+if cp data/mysql-connector-java-8.0.13.jar $to_old_path/wso2am-$old_version/repository/components/lib
+then
+	echo  Successfully copied the MySQL JDBC driver JAR.
+else
+	echo Copying the MySQL JDBC driver JAR is failed.
+fi
+
+#Cofigure old APIM's master-datasources.xml file and provide the datasource configurations
+
+./scripts/configuring_master_datasource.sh $to_old_path $old_version
+
+#Configure old APIM's the /repository/conf/registry.xml file
+
+#Configure old APIM's the /repository/conf/user-mgt.xml file
+
+#Create databases and tables in mysql(if it is mysql)
+
+#Run the APIM
+./scripts/configuring_registry_xml.sh 
 #Run jmeter and do all testings to current version of APIM
+#./scripts/jmeter_data_population.sh
 
 #3.Master-datasources.xml file and provide the datasource configurations - 3
 
