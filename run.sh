@@ -30,52 +30,68 @@ then
 	fi
 fi
 
-#Unzip the downloaded MySQL driver archive, and copy the MySQL JDBC driver JAR
+#Copy the MySQL JDBC driver JAR
 
-if cp data/mysql-connector-java-8.0.13.jar $to_old_path/wso2am-$old_version/repository/components/lib
-then
-	echo  Successfully copied the MySQL JDBC driver JAR.
-else
-	echo Copying the MySQL JDBC driver JAR is failed.
-fi
-
-#Cofigure old APIM's master-datasources.xml file and provide the datasource configurations
-
-./scripts/configuring_master_datasource.sh $to_old_path $old_version
-
-#Configure old APIM's the /repository/conf/registry.xml file
-
-./scripts/configuring_registry_xml.sh $to_old_path $old_version
-
-#Configure old APIM's the /repository/conf/user-mgt.xml file
-
-./scripts/configuring_user_mgt_xml.sh $to_old_path $old_version
+#if cp data/mysql-connector-java-8.0.13.jar $to_old_path/wso2am-$old_version/repository/components/lib
+#then
+#	echo  Successfully copied the MySQL JDBC driver JAR.
+#else
+#	echo Copying the MySQL JDBC driver JAR is failed.
+#fi
 
 #Create databases and tables in mysql(if it is mysql)
 
-./scripts/mysql_connection_old_apim.sh $to_old_path $old_version
+#./scripts/mysql_connection_old_apim.sh $to_old_path $old_version
+
+#Cofigure old APIM's master-datasources.xml file and provide the datasource configurations
+
+#./scripts/configuring_master_datasource.sh $to_old_path $old_version
+
+#Configure old APIM's the /repository/conf/registry.xml file
+
+#./scripts/configuring_registry_xml.sh $to_old_path $old_version
+
+#Configure old APIM's the /repository/conf/user-mgt.xml file
+
+#./scripts/configuring_user_mgt_xml.sh $to_old_path $old_version
 
 #Run the APIM
  
-gnome-terminal -e "sh $to_old_path/wso2am-$old_version/bin/wso2server.sh"
+#gnome-terminal -e "sh $to_old_path/wso2am-$old_version/bin/wso2server.sh"
 
-while ! echo exit | nc localhost 9443
-do 
-	sleep 10
-done
+#while ! echo exit | nc localhost 9443
+#do 
+#	sleep 10
+#done
 
 #Run jmeter and do all testings to current version of APIM
 
-./scripts/jmeter_data_population.sh
+#./scripts/jmeter_data_population.sh
+
+#Copy the MySQL JDBC driver JAR
+
+#if cp data/mysql-connector-java-8.0.13.jar $to_old_path/wso2am-$old_version/repository/components/lib
+#then
+#	echo  Successfully copied the MySQL JDBC driver JAR.
+#else
+#	echo Copying the MySQL JDBC driver JAR is failed.
+#fi
 
 #3.Master-datasources.xml file and provide the datasource configurations - 3
 
+#./scripts/configuring_master_datasource.sh $to_new_path $new_version
 
 #Configuring the /repository/conf/registry.xml file - 4
 
+#./scripts/configuring_registry_xml.sh $to_new_path $new_version
+
 #Configuring the /repository/conf/user-mgt.xml file
 
+#./scripts/configuring_user_mgt_xml.sh $to_new_path $new_version
+
 #move all synapse configs
+
+./scripts/move_synapse.sh $to_old_path $old_version $to_new_path $new_version
 
 #Copy tenants to new version - 6
 
