@@ -35,9 +35,9 @@
 	       </jndiConfig>
 	       <definition type="RDBMS">
 		   <configuration>
-		       <url>jdbc:mysql://localhost:3306/regdb?useSSL=false</url>
-		       <username>regadmin</username>
-		       <password>regadmin</password>
+		       <url>jdbc:mysql://localhost:3306/regdb1?useSSL=false</url>
+		       <username>root</username>
+		       <password></password>
 		       <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
 		       <maxActive>80</maxActive>
 		       <maxWait>60000</maxWait>
@@ -58,9 +58,9 @@
 	       </jndiConfig>
 	       <definition type="RDBMS">
 		   <configuration>
-		       <url>jdbc:mysql://localhost:3306/userdb?useSSL=false</url>
-		       <username>regadmin</username>
-		       <password>regadmin</password>
+		       <url>jdbc:mysql://localhost:3306/userdb1?useSSL=false</url>
+		       <username>root</username>
+		       <password></password>
 		       <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
 		       <maxActive>80</maxActive>
 		       <maxWait>60000</maxWait>
@@ -81,9 +81,9 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:mysql://localhost:3306/amdb?useSSL=false</url>
-		       <username>regadmin</username>
-		       <password>regadmin</password>
+                    <url>jdbc:mysql://localhost:3306/amdb1?useSSL=false</url>
+		       <username>root</username>
+		       <password></password>
 		       <defaultAutoCommit>false</defaultAutoCommit>
 		       <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
 		       <maxActive>80</maxActive>
