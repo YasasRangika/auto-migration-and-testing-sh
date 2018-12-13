@@ -20,16 +20,17 @@ case "$2" in
 				echo "Still not developed this part of code :)"
 			;;
 			"2.1.0")
-				cp -R ../data/Identity_component_upgrade/wso2is-5.6.0-migration/migration-resources $3/wso2am-$2
+				cp -R data/Identity_component_upgrade/wso2is-5.6.0-migration/migration-resources $3/wso2am-$2
 				#Open the migration-config.yaml file in the migration-resources directory in wso2is-5.6.0-migration and edit the currentVersion element to 5.3.0 part is done by hard coding. Please make it yaml file editor 'sed'
-				if cp ../data/Identity_component_upgrade/wso2is-5.6.0-migration/org.wso2.carbon.is.migration-5.6.0.jar $3/wso2am-$2/repository/components/dropins
+				if cp data/Identity_component_upgrade/wso2is-5.6.0-migration/org.wso2.carbon.is.migration-5.6.0.jar $3/wso2am-$2/repository/components/dropins
 				then
 					echo  Successfully copied the wso2.carbon.is.migration JAR.
 				else
 					echo Failed to copy the wso2.carbon.is.migration JAR.
 				fi
 
-				if cp -TRv $4/wso2am-$1/repository/resources/security $3/wso2am-$2/repository/resources/security
+				if cp -R $4/wso2am-$1/repository/resources/security $3/wso2am-$2/repository/resources/security
+#if cp -TRv $4/wso2am-$1/repository/resources/security $3/wso2am-$2/repository/resources/security -> earlier one
 				then
 					echo  Successfully Copied and replaced the keystores used in the previous version.
 				else
@@ -66,7 +67,7 @@ case "$2" in
 					echo Failed to remove org.wso2.carbon.is.migration-5.6.0.jar from it\'s locations.
 				fi
 				
-				if cp ../data/Access_control_migration_client/org.wso2.carbon.apimgt.access.control.migration.client-1.0-SNAPSHOT.jar $3/wso2am-$2/repository/components/dropins
+				if cp data/Access_control_migration_client/org.wso2.carbon.apimgt.access.control.migration.client-1.0-SNAPSHOT.jar $3/wso2am-$2/repository/components/dropins
 				then
 					echo  Successfully copied the apimgt.access.control.migration.client JAR.
 				else

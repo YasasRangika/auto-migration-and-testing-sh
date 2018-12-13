@@ -70,7 +70,7 @@
             </elementProp>
             <elementProp name="app" elementType="Argument">
               <stringProp name="Argument.name">app</stringProp>
-              <stringProp name="Argument.value">SampleApplication006</stringProp>
+              <stringProp name="Argument.value">SampleApplication005</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="get_path" elementType="Argument">
