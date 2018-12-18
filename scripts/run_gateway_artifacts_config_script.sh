@@ -120,7 +120,7 @@ case "$2" in
 			then
 				echo "Gateway artifacts configuration successful for tenants."
 			else
-				echo "Configuration failed, Please manually configure the gateway artifacts downloading from https://docs.wso2.com/download/attachments/92520041/apim210_to_apim250_gateway_artifact_migrator.sh?version=2&modificationDate=1531390716000&api=v2"
+				echo "Configuration failed in tenants, Please manually configure the gateway artifacts downloading from https://docs.wso2.com/download/attachments/92520041/apim210_to_apim250_gateway_artifact_migrator.sh?version=2&modificationDate=1531390716000&api=v2"
 			fi
 		elif [ "$1" == "2.2.0" ]
 		then

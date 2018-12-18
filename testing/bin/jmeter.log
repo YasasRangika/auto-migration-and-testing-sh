@@ -1,143 +1,62 @@
-2018-12-14 09:14:50,368 INFO o.a.j.u.JMeterUtils: Setting Locale to en_US
-2018-12-14 09:14:50,419 INFO o.a.j.JMeter: Loading user properties from: user.properties
-2018-12-14 09:14:50,420 INFO o.a.j.JMeter: Loading system properties from: system.properties
-2018-12-14 09:14:50,478 INFO o.a.j.JMeter: Copyright (c) 1998-2018 The Apache Software Foundation
-2018-12-14 09:14:50,478 INFO o.a.j.JMeter: Version 5.0 r1840935
-2018-12-14 09:14:50,478 INFO o.a.j.JMeter: java.version=1.8.0_45
-2018-12-14 09:14:50,478 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
-2018-12-14 09:14:50,478 INFO o.a.j.JMeter: os.name=Linux
-2018-12-14 09:14:50,478 INFO o.a.j.JMeter: os.arch=amd64
-2018-12-14 09:14:50,478 INFO o.a.j.JMeter: os.version=4.15.0-20-generic
-2018-12-14 09:14:50,478 INFO o.a.j.JMeter: file.encoding=UTF-8
-2018-12-14 09:14:50,479 INFO o.a.j.JMeter: Max memory     =1789919232
-2018-12-14 09:14:50,479 INFO o.a.j.JMeter: Available Processors =4
-2018-12-14 09:14:50,507 INFO o.a.j.JMeter: Default Locale=English (United States)
-2018-12-14 09:14:50,507 INFO o.a.j.JMeter: JMeter  Locale=English (United States)
-2018-12-14 09:14:50,507 INFO o.a.j.JMeter: JMeterHome=/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing
-2018-12-14 09:14:50,507 INFO o.a.j.JMeter: user.dir  =/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin
-2018-12-14 09:14:50,508 INFO o.a.j.JMeter: PWD       =/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin
-2018-12-14 09:14:50,508 INFO o.a.j.JMeter: IP: 127.0.1.1 Name: yasas-ThinkPad-T530 FullName: yasas-ThinkPad-T530
-2018-12-14 09:14:51,452 INFO o.a.j.g.a.LookAndFeelCommand: Installing Darcula LAF
-2018-12-14 09:14:51,693 INFO o.a.j.g.a.LookAndFeelCommand: Using look and feel: com.bulenkov.darcula.DarculaLaf [Darcula]
-2018-12-14 09:14:51,693 INFO o.a.j.JMeter: Setting LAF to: com.bulenkov.darcula.DarculaLaf
-2018-12-14 09:14:51,975 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
-2018-12-14 09:14:52,782 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
-2018-12-14 09:14:52,782 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
-2018-12-14 09:14:58,054 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2018-12-14 09:14:58,055 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2018-12-14 09:14:58,055 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2018-12-14 09:14:58,055 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2018-12-14 09:14:58,056 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
-2018-12-14 09:14:58,056 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
-2018-12-14 09:14:58,762 INFO o.a.j.e.KeyToolUtils: keytool found at 'keytool'
-2018-12-14 09:14:58,763 INFO o.a.j.p.h.p.ProxyControl: HTTP(S) Test Script Recorder SSL Proxy will use keys that support embedded 3rd party resources in file /home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin/proxyserver.jks
-2018-12-14 09:14:58,950 INFO o.a.j.s.FileServer: Default base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
-2018-12-14 09:14:59,551 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
-2018-12-14 09:14:59,552 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
-2018-12-14 09:14:59,552 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
-2018-12-14 09:14:59,552 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
-2018-12-14 09:15:14,958 INFO o.a.j.g.a.Load: Loading file: /home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin/Scenario_001_APIM.jmx
-2018-12-14 09:15:14,958 INFO o.a.j.s.FileServer: Set new base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
-2018-12-14 09:15:15,251 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
-2018-12-14 09:15:15,319 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
-2018-12-14 09:15:15,321 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
-2018-12-14 09:15:15,326 INFO o.a.j.s.SaveService: Loading file: /home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin/Scenario_001_APIM.jmx
-2018-12-14 09:15:15,630 INFO o.a.j.s.FileServer: Set new base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
-2018-12-14 09:20:55,345 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2018-12-14 09:20:55,347 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2018-12-14 09:20:55,347 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2018-12-14 09:20:55,361 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2018-12-14 09:20:55,531 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : API Publisher
-2018-12-14 09:20:55,531 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group API Publisher.
-2018-12-14 09:20:55,531 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2018-12-14 09:20:55,531 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 perThread=1000.0 delayedStart=false
-2018-12-14 09:20:55,551 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2018-12-14 09:20:55,551 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2018-12-14 09:20:55,554 INFO o.a.j.t.JMeterThread: Thread started: API Publisher 1-1
-2018-12-14 09:20:55,614 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = yasas-ThinkPad-T530
-2018-12-14 09:20:55,619 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
-2018-12-14 09:20:55,697 INFO o.a.j.p.h.s.h.LazyLayeredConnectionSocketFactory: Setting up HTTPS TrustAll Socket Factory
-2018-12-14 09:20:55,701 INFO o.a.j.u.JsseSSLManager: Using default SSL protocol: TLS
-2018-12-14 09:20:55,701 INFO o.a.j.u.JsseSSLManager: SSL session context: per-thread
-2018-12-14 09:20:55,754 INFO o.a.j.u.SSLManager: JmeterKeyStore Location:  type JKS
-2018-12-14 09:20:55,755 INFO o.a.j.u.SSLManager: KeyStore created OK
-2018-12-14 09:20:55,756 WARN o.a.j.u.SSLManager: Keystore file not found, loading empty keystore
-2018-12-14 09:20:57,542 INFO o.a.j.p.h.m.RegExUserParameters: RegExUserParameters element: RegEx User Parameters => Referenced RegExp was not found, no parameter will be changed
-2018-12-14 09:21:02,025 INFO o.a.j.t.JMeterThread: Thread is done: API Publisher 1-1
-2018-12-14 09:21:02,025 INFO o.a.j.t.JMeterThread: Thread finished: API Publisher 1-1
-2018-12-14 09:21:02,028 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2018-12-14 09:21:02,029 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2018-12-14 09:30:02,438 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2018-12-14 09:30:02,439 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2018-12-14 09:30:02,450 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2018-12-14 09:30:02,707 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : API Publisher
-2018-12-14 09:30:02,707 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group API Publisher.
-2018-12-14 09:30:02,707 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2018-12-14 09:30:02,707 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 perThread=1000.0 delayedStart=false
-2018-12-14 09:30:02,724 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2018-12-14 09:30:02,724 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2018-12-14 09:30:02,725 INFO o.a.j.t.JMeterThread: Thread started: API Publisher 1-1
-2018-12-14 09:30:02,801 INFO o.a.j.p.h.m.RegExUserParameters: RegExUserParameters element: RegEx User Parameters => Referenced RegExp was not found, no parameter will be changed
-2018-12-14 09:30:06,793 INFO o.a.j.t.JMeterThread: Thread is done: API Publisher 1-1
-2018-12-14 09:30:06,794 INFO o.a.j.t.JMeterThread: Thread finished: API Publisher 1-1
-2018-12-14 09:30:06,794 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2018-12-14 09:30:06,795 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2018-12-14 09:35:10,811 INFO o.a.j.g.a.Load: Loading file: /home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin/Scenario_002_APIM.jmx
-2018-12-14 09:35:10,812 INFO o.a.j.s.FileServer: Set new base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
-2018-12-14 09:35:10,812 INFO o.a.j.s.SaveService: Loading file: /home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin/Scenario_002_APIM.jmx
-2018-12-14 09:35:10,969 INFO o.a.j.s.FileServer: Set new base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
-2018-12-14 09:36:54,492 INFO o.a.j.g.a.Load: Loading file: /home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin/Scenario_000_APIM.jmx
-2018-12-14 09:36:54,492 INFO o.a.j.s.FileServer: Set new base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
-2018-12-14 09:36:54,492 INFO o.a.j.s.SaveService: Loading file: /home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin/Scenario_000_APIM.jmx
-2018-12-14 09:36:54,637 INFO o.a.j.s.FileServer: Set new base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
-2018-12-14 09:39:34,605 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2018-12-14 09:39:34,606 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2018-12-14 09:39:34,608 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2018-12-14 09:39:34,830 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : API Publisher
-2018-12-14 09:39:34,830 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group API Publisher.
-2018-12-14 09:39:34,830 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2018-12-14 09:39:34,830 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 perThread=1000.0 delayedStart=false
-2018-12-14 09:39:34,835 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2018-12-14 09:39:34,835 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2018-12-14 09:39:34,835 INFO o.a.j.t.JMeterThread: Thread started: API Publisher 1-1
-2018-12-14 09:39:34,939 INFO o.a.j.t.JMeterThread: Thread is done: API Publisher 1-1
-2018-12-14 09:39:34,939 INFO o.a.j.t.JMeterThread: Thread finished: API Publisher 1-1
-2018-12-14 09:39:34,939 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2018-12-14 09:39:34,940 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2018-12-14 09:40:35,762 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2018-12-14 09:40:35,763 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2018-12-14 09:40:35,764 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2018-12-14 09:40:35,899 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : API Publisher
-2018-12-14 09:40:35,899 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group API Publisher.
-2018-12-14 09:40:35,899 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2018-12-14 09:40:35,899 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 perThread=1000.0 delayedStart=false
-2018-12-14 09:40:35,901 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2018-12-14 09:40:35,901 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2018-12-14 09:40:35,902 INFO o.a.j.t.JMeterThread: Thread started: API Publisher 1-1
-2018-12-14 09:40:35,975 INFO o.a.j.t.JMeterThread: Thread is done: API Publisher 1-1
-2018-12-14 09:40:35,976 INFO o.a.j.t.JMeterThread: Thread finished: API Publisher 1-1
-2018-12-14 09:40:35,976 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2018-12-14 09:40:35,976 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2018-12-14 09:41:16,206 INFO o.a.j.g.a.Load: Loading file: /home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin/Scenario_001_APIM.jmx
-2018-12-14 09:41:16,206 INFO o.a.j.s.FileServer: Set new base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
-2018-12-14 09:41:16,206 INFO o.a.j.s.SaveService: Loading file: /home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin/Scenario_001_APIM.jmx
-2018-12-14 09:41:16,313 INFO o.a.j.s.FileServer: Set new base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
-2018-12-14 09:45:13,540 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2018-12-14 09:45:13,540 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2018-12-14 09:45:13,543 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2018-12-14 09:45:13,715 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : API Publisher
-2018-12-14 09:45:13,715 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group API Publisher.
-2018-12-14 09:45:13,715 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2018-12-14 09:45:13,715 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 perThread=1000.0 delayedStart=false
-2018-12-14 09:45:13,733 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2018-12-14 09:45:13,734 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2018-12-14 09:45:13,735 INFO o.a.j.t.JMeterThread: Thread started: API Publisher 1-1
-2018-12-14 09:45:13,847 INFO o.a.j.p.h.m.RegExUserParameters: RegExUserParameters element: RegEx User Parameters => Referenced RegExp was not found, no parameter will be changed
-2018-12-14 09:45:14,124 INFO o.a.j.t.JMeterThread: Thread is done: API Publisher 1-1
-2018-12-14 09:45:14,124 INFO o.a.j.t.JMeterThread: Thread finished: API Publisher 1-1
-2018-12-14 09:45:14,125 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2018-12-14 09:45:14,125 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2018-12-14 10:36:07,353 INFO o.a.j.g.a.Load: Loading file: /home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin/Scenario_002_APIM.jmx
-2018-12-14 10:36:07,353 INFO o.a.j.s.FileServer: Set new base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
-2018-12-14 10:36:07,353 INFO o.a.j.s.SaveService: Loading file: /home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin/Scenario_002_APIM.jmx
-2018-12-14 10:36:07,499 INFO o.a.j.s.FileServer: Set new base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
+2018-12-18 16:49:12,152 INFO o.a.j.u.JMeterUtils: Setting Locale to en_US
+2018-12-18 16:49:12,168 INFO o.a.j.JMeter: Loading user properties from: user.properties
+2018-12-18 16:49:12,168 INFO o.a.j.JMeter: Loading system properties from: system.properties
+2018-12-18 16:49:12,173 INFO o.a.j.JMeter: Copyright (c) 1998-2018 The Apache Software Foundation
+2018-12-18 16:49:12,173 INFO o.a.j.JMeter: Version 5.0 r1840935
+2018-12-18 16:49:12,173 INFO o.a.j.JMeter: java.version=1.8.0_45
+2018-12-18 16:49:12,174 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2018-12-18 16:49:12,174 INFO o.a.j.JMeter: os.name=Linux
+2018-12-18 16:49:12,174 INFO o.a.j.JMeter: os.arch=amd64
+2018-12-18 16:49:12,174 INFO o.a.j.JMeter: os.version=4.15.0-20-generic
+2018-12-18 16:49:12,174 INFO o.a.j.JMeter: file.encoding=UTF-8
+2018-12-18 16:49:12,174 INFO o.a.j.JMeter: Max memory     =1789919232
+2018-12-18 16:49:12,174 INFO o.a.j.JMeter: Available Processors =4
+2018-12-18 16:49:12,178 INFO o.a.j.JMeter: Default Locale=English (United States)
+2018-12-18 16:49:12,178 INFO o.a.j.JMeter: JMeter  Locale=English (United States)
+2018-12-18 16:49:12,178 INFO o.a.j.JMeter: JMeterHome=/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing
+2018-12-18 16:49:12,178 INFO o.a.j.JMeter: user.dir  =/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin
+2018-12-18 16:49:12,178 INFO o.a.j.JMeter: PWD       =/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin
+2018-12-18 16:49:12,179 INFO o.a.j.JMeter: IP: 127.0.1.1 Name: yasas-ThinkPad-T530 FullName: yasas-ThinkPad-T530
+2018-12-18 16:49:12,181 INFO o.a.j.s.FileServer: Default base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
+2018-12-18 16:49:12,185 INFO o.a.j.s.FileServer: Set new base='/home/yasas/Videos/wso2am-2.5.0/auto-migration-and-testing/testing/bin'
+2018-12-18 16:49:12,339 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2018-12-18 16:49:12,351 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2018-12-18 16:49:12,355 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2018-12-18 16:49:12,361 INFO o.a.j.s.SaveService: Loading file: Scenario_003_APIM.jmx
+2018-12-18 16:49:12,430 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-12-18 16:49:12,430 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-12-18 16:49:12,430 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-12-18 16:49:12,430 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-12-18 16:49:12,430 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2018-12-18 16:49:12,430 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2018-12-18 16:49:12,603 INFO o.a.j.JMeter: Creating summariser <summary>
+2018-12-18 16:49:12,610 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2018-12-18 16:49:12,611 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2018-12-18 16:49:12,612 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2018-12-18 16:49:12,622 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2018-12-18 16:49:12,622 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2018-12-18 16:49:13,188 INFO o.a.j.JMeter: Running test (1545131953188)
+2018-12-18 16:49:13,228 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : API Publisher
+2018-12-18 16:49:13,228 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group API Publisher.
+2018-12-18 16:49:13,228 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2018-12-18 16:49:13,228 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 perThread=1000.0 delayedStart=false
+2018-12-18 16:49:13,249 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2018-12-18 16:49:13,249 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2018-12-18 16:49:13,253 INFO o.a.j.t.JMeterThread: Thread started: API Publisher 1-1
+2018-12-18 16:49:13,292 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = yasas-ThinkPad-T530
+2018-12-18 16:49:13,301 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2018-12-18 16:49:13,303 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2018-12-18 16:49:13,303 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2018-12-18 16:49:13,303 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2018-12-18 16:49:13,303 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2018-12-18 16:49:13,385 INFO o.a.j.p.h.s.h.LazyLayeredConnectionSocketFactory: Setting up HTTPS TrustAll Socket Factory
+2018-12-18 16:49:13,391 INFO o.a.j.u.JsseSSLManager: Using default SSL protocol: TLS
+2018-12-18 16:49:13,391 INFO o.a.j.u.JsseSSLManager: SSL session context: per-thread
+2018-12-18 16:49:13,446 INFO o.a.j.u.SSLManager: JmeterKeyStore Location:  type JKS
+2018-12-18 16:49:13,448 INFO o.a.j.u.SSLManager: KeyStore created OK
+2018-12-18 16:49:13,448 WARN o.a.j.u.SSLManager: Keystore file not found, loading empty keystore
+2018-12-18 16:49:14,004 INFO o.a.j.p.h.m.RegExUserParameters: RegExUserParameters element: RegEx User Parameters => Referenced RegExp was not found, no parameter will be changed
+2018-12-18 16:49:23,670 INFO o.a.j.t.JMeterThread: Thread is done: API Publisher 1-1
+2018-12-18 16:49:23,670 INFO o.a.j.t.JMeterThread: Thread finished: API Publisher 1-1
+2018-12-18 16:49:23,671 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2018-12-18 16:49:23,672 INFO o.a.j.r.Summariser: summary =     13 in 00:00:10 =    1.2/s Avg:   782 Min:    19 Max:  3725 Err:     0 (0.00%)

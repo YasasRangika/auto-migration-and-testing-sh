@@ -65,3 +65,11 @@ do
 	sleep 10
 done
 
+##Run jmeter and create roles and users on current version of APIM
+
+./scripts/roles_and_users_creation.sh
+
+##Run jmeter and populate data on current version of APIM
+
+./scripts/jmeter_data_population.sh
+

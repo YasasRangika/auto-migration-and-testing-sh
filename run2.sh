@@ -123,3 +123,18 @@ fi
 
 gnome-terminal -e "sh $to_new_path/wso2am-$new_version/bin/wso2server.sh"
 
+while ! echo exit | nc localhost 9443
+do 
+	sleep 10
+done
+
+##Run jmeter and test APIs on new version of APIM
+
+./scripts/test_previous_version_APIs.sh
+
+##Run jmeter script to create new API and test it on new version of APIM
+
+./scripts/create_and_test_APIs_in_new_version.sh
+
+
+
