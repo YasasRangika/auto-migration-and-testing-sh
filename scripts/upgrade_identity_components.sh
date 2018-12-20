@@ -8,6 +8,9 @@ case "$2" in
 		case "$1" in
 			"2.0.0")
 				echo "Still not developed this part of code :)"
+
+#####################%%%%%%%%%%%%%%%%%%%%%%MAKE A SEPERATE SCRIPT TO DO TASKS IN EACH ONE(COMPARE EACH VERSION BEFORE IT), REMOVE BELOW LARGE ONE%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#####################################
+
 			;;
 			"2.1.0")
 				echo "Still not developed this part of code :)"
@@ -30,7 +33,6 @@ case "$2" in
 				fi
 
 				if cp -R $4/wso2am-$1/repository/resources/security $3/wso2am-$2/repository/resources/security
-#if cp -TRv $4/wso2am-$1/repository/resources/security $3/wso2am-$2/repository/resources/security -> earlier one
 				then
 					echo  Successfully Copied and replaced the keystores used in the previous version.
 				else

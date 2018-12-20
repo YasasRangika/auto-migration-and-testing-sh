@@ -1,11 +1,25 @@
 #!/bin/bash
 source properties.conf
+
+
+
 ##$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$CHANGE THE DATA BASE NAMES IN MASTER DATA SOURCE XML FILE$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*********************************
-##If both APIMs are in same folder
+
+
+
 if [[ $to_old_path -ef $to_new_path ]] 
 then
 	#Unzip APIMs
-	unzip -qq $to_new_path/\*.zip -d $to_new_path
+	unzip -qq $to_new_path/\*.zip -d $to_new_path &
+	PID=$!
+	i=1
+	sp="/―\|"
+	echo -n Unzipping API manger all the versions [processing] : ' '
+	while [ -d /proc/$PID ]
+	do
+	  printf "\b${sp:i++%${#sp}:1}"
+	done
+	echo
 
 	#prepare variables
 	i=1
@@ -28,6 +42,49 @@ then
 		new_version=$version2
 		old_version=$version1
 	fi
+else
+	#Unzip APIMs
+	unzip -qq $to_old_path/\*.zip -d $to_old_path &
+	PID=$!
+	i=1
+	sp="/―\|"
+	echo -n Unzipping API manger old version [processing] : ' '
+	while [ -d /proc/$PID ]
+	do
+	  printf "\b${sp:i++%${#sp}:1}"
+	done
+	echo
+
+	unzip -qq $to_new_path/\*.zip -d $to_new_path &
+	PID=$!
+	i=1
+	sp="/―\|"
+	echo -n Unzipping API manger new version [processing] : ' '
+	while [ -d /proc/$PID ]
+	do
+	  printf "\b${sp:i++%${#sp}:1}"
+	done
+	echo
+
+	#prepare variables
+	[[ $(ls -A $to_old_path) ]] && for dirs in $to_old_path/*
+	do
+		[[ $dirs =~ .zip ]] && continue
+		re="wso2am-([^/]+)"
+		if [[ $(basename $dirs) =~ $re ]]
+		then
+			eval "old_version=${BASH_REMATCH[1]}"
+		fi
+	done
+	[[ $(ls -A $to_new_path) ]] && for dirs in $to_new_path/*
+	do
+		[[ $dirs =~ .zip ]] && continue
+		re="wso2am-([^/]+)"
+		if [[ $(basename $dirs) =~ $re ]]
+		then
+			eval "new_version=${BASH_REMATCH[1]}"
+		fi
+	done
 fi
 
 ##Copy the MySQL JDBC driver JAR
@@ -126,70 +183,27 @@ then
 	echo Upgraded the API Manager database from version-$old_version to version-$new_version
 fi
 
-
-##**********************From this some parts are not in standard coding format, some are like hard coded....change them
 ##Upgrade the Identity component in WSO2 API Manager
+
 ./scripts/upgrade_identity_components.sh $old_version $new_version $to_new_path $to_old_path
 
 ##Run the reg-index.sql script against the REG_DB database
+
 ./scripts/reg_index_sql.sh
 
 ##Add the tenantloader-1.0.jar
-if cp data/rush_re-indexing_2.5.0/tenantloader-1.0.jar $to_new_path/wso2am-$new_version/repository/components/dropins
-then
-	echo  Successfully copied the tenantloader JAR.
-else
-	echo Failed to copy the tenantloader JAR.
-fi
+
+./scripts/copy_tenantloader_jar.sh $to_new_path $new_version
 
 ##Re-indexing the artifacts in the registry
-echo "*****************************Re-indexing the artifacts in the registry*********************************"
-sed -i.bak 's/\/_system\/local\/repository\/components\/org.wso2.carbon.registry\/indexing\/lastaccesstime/\/_system\/local\/repository\/components\/org.wso2.carbon.registry\/indexing\/lastaccesstime_1/' $to_new_path/wso2am-$new_version/repository/conf/registry.xml
-if [ $? -eq 0 ]
-then
-	echo "Re-indexing the artifacts in the registry.xml is successful."
-else
-	echo "Configuration failed, Please manually rename the <lastAccessTimeLocation> element in the <API-M_2.x.0_HOME>/repository/conf/registry.xml file."
-fi
 
-if [ -e ../solr ] 
-then
-  rm -R ../solr
-fi
+./scripts/reindex_artifacts_registry_xml.sh $to_new_path $new_version
 
-gnome-terminal -e "sh $to_new_path/wso2am-$new_version/bin/wso2server.sh"
+##remove the WSO2 API-M client migration ZIP
 
-while ! echo exit | nc localhost 9443
-do 
-	sleep 10
-done
+./scripts/remove_apim_client_migration_zip.sh $to_new_path $new_version
 
-echo waiting till user manually stop the server!!!
-
-while lsof -Pi :9443 -sTCP:LISTEN -t >/dev/null
-do 
-	sleep 10
-done
-
-rm -rf $to_new_path/wso2am-$new_version/repository/components/dropins/tenantloader-1.0.jar
-if [ $? -eq 0 ]
-then
-	echo Successfully removed tenantloader-1.0.jar from it\'s locations.
-else
-	echo Failed to remove tenantloader-1.0.jar from it\'s locations.
-fi
-
-#remove the WSO2 API-M client migration ZIP
-if [ -e wso2-api-migration-client.zip ]
-then
-	rm -rf $to_new_path/wso2am-$new_version/repository/components/dropins/wso2-api-migration-client.zip
-	if [ $? -eq 0 ]
-	then
-		echo Successfully removed wso2-api-migration-client.zip from it\'s locations.
-	else
-		echo Failed to remove wso2-api-migration-client.zip from it\'s locations.
-	fi
-fi
+##final server up
 
 gnome-terminal -e "sh $to_new_path/wso2am-$new_version/bin/wso2server.sh"
 
@@ -205,19 +219,5 @@ done
 ##Run jmeter script to create new API and test it on new version of APIM
 
 ./scripts/create_and_test_APIs_in_new_version.sh
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

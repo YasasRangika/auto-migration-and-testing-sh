@@ -1,8 +1,26 @@
 #!/bin/bash
+source properties.conf
 
-if cp -R /home/yasas/Music/Test/* /home/yasas/Videos/Test
-then
-	echo  Successfully Copied and replaced the keystores used in the previous version.
-else
-	echo Failed to Copy and replace the keystores used in the previous version.
-fi
+	#Unzip APIMs
+	#unzip -o $to_old_path/\*.zip -d $to_old_path | awk 'BEGIN {ORS=" "} {if(NR%100==0)print "."}'
+	#unzip -qq $to_old_path/\*.zip -d $to_old_path | awk 'BEGIN {ORS=" "} {print "."}'
+	#unzip -qq $to_new_path/\*.zip -d $to_new_path | awk 'BEGIN {ORS=" "} {if(NR%10==0)print "."}'
+
+	
+
+
+unzip -qq $to_old_path/\*.zip -d $to_old_path &
+PID=$!
+i=1
+sp="/―\|"
+echo -n Unzipping API manger old version [processing] : ' '
+while [ -d /proc/$PID ]
+do
+  printf "\b${sp:i++%${#sp}:1}"
+done
+
+
+
+
+#echo old version : $old_version
+#echo new version : $new_version
